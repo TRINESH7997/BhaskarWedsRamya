@@ -34,7 +34,7 @@ export default function Footer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.5 }}
         >
-          #GowthamiWedsMohith
+          #BhaskarWedsRamya
         </motion.p>
 
         <motion.p
@@ -48,33 +48,8 @@ export default function Footer() {
             letterSpacing: '0.06em',
           }}
         >
-          20 · November · 2026 &nbsp;·&nbsp; Gowribidanur, Karnataka
+          26 · November · 2026 &nbsp;·&nbsp; Kovur, Nellore
         </motion.p>
-
-        <motion.div
-          className="footer-contacts"
-          initial={{ opacity: 0, y: 12 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.9, delay: 0.9 }}
-        >
-          <span className="contacts-heading">Contact Details</span>
-          <div className="contact-list">
-            <a href="tel:8618411006" className="contact-item">
-              <span className="contact-icon">📞</span>
-              <div className="contact-info">
-                <span className="contact-name">Govardhan Reddy</span>
-                <span className="contact-num">8618411006</span>
-              </div>
-            </a>
-            <a href="tel:8374020400" className="contact-item">
-              <span className="contact-icon">📞</span>
-              <div className="contact-info">
-                <span className="contact-name">Sai Sumanth Reddy</span>
-                <span className="contact-num">8374020400</span>
-              </div>
-            </a>
-          </div>
-        </motion.div>
 
         {/* Floating hearts */}
         {[...Array(5)].map((_, i) => (

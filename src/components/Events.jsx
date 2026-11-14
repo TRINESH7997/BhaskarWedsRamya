@@ -3,36 +3,20 @@ import useInView from '../hooks/useInView';
 
 const EVENTS = [
   {
-    title: "Bride's Haldi",
-    when: 'Thu 19 Nov · 7:00 AM – 11:00 AM',
-    where: 'Narganahalli (V), Kodigenahalli (H)\nMadhugiri (Tq)',
-    accent: '#e6d2ae',
-    mapUrl: null,
-    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bride%27s+Haldi+-+Gowthami+%26+Mohith&dates=20261119T013000Z/20261119T053000Z&location=Narganahalli,+Kodigenahalli,+Madhugiri',
-  },
-  {
-    title: "Groom's Haldi",
-    when: 'Thu 19 Nov · 7:00 AM – 11:00 AM',
-    where: 'S.Sadlapalli, Hindupur\nLandmark: Balaji Flour Mills',
-    accent: '#b8d4c8',
-    mapUrl: 'https://maps.app.goo.gl/o2Cfxfoi8V6GfBhA9',
-    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Groom%27s+Haldi+-+Gowthami+%26+Mohith&dates=20261119T013000Z/20261119T053000Z&location=S.Sadlapalli,+Hindupur',
+    title: 'Wedding Ceremony',
+    when: 'Thu 26 Nov · 07:48 AM – 09:56 AM',
+    where: 'PVR Kalyana Mandapam\nKovur Mandal, Nellore District',
+    accent: '#c0a0ad',
+    mapUrl: 'https://maps.app.goo.gl/ssXuUMr9mN5Rj1Xb8',
+    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+-+Bhaskar+%26+Ramya&dates=20261126T021800Z/20261126T042600Z&location=PVR+Kalyana+Mandapam,+Kovur,+Nellore',
   },
   {
     title: 'Reception',
-    when: 'Thu 19 Nov · 7:30 PM – 10:00 PM',
-    where: 'Sri Tirumala Kalyana Mantapam\nViduraswatha, Gowribidanur (Tq)',
-    accent: '#c0a0ad',
-    mapUrl: 'https://maps.app.goo.gl/Cbefvev79VrRK7uaA',
-    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception+-+Gowthami+%26+Mohith&dates=20261119T140000Z/20261119T163000Z&location=Sri+Tirumala+Kalyana+Mantapam,+Viduraswatha,+Gowribidanur',
-  },
-  {
-    title: 'Wedding Ceremony',
-    when: 'Fri 20 Nov · 9:30 AM – 10:15 AM',
-    where: 'Sri Tirumala Kalyana Mantapam\nViduraswatha, Gowribidanur (Tq)',
+    when: 'Thu 26 Nov · 7:00 PM Onwards',
+    where: 'PVR Kalyana Mandapam\nKovur Mandal, Nellore District',
     accent: '#d4b8c0',
-    mapUrl: 'https://maps.app.goo.gl/Cbefvev79VrRK7uaA',
-    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+-+Gowthami+%26+Mohith&dates=20261120T040000Z/20261120T044500Z&location=Sri+Tirumala+Kalyana+Mantapam,+Viduraswatha,+Gowribidanur',
+    mapUrl: 'https://maps.app.goo.gl/ssXuUMr9mN5Rj1Xb8',
+    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception+-+Bhaskar+%26+Ramya&dates=20261126T133000Z/20261126T163000Z&location=PVR+Kalyana+Mandapam,+Kovur,+Nellore',
   },
 ];
 

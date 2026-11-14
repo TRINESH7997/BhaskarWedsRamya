@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import useInView from '../hooks/useInView';
+// Assuming useInView is used elsewhere or remove if unused, keeping it as in your original file.
+import useInView from '../hooks/useInView'; 
 
-// Wedding Muhurtham date: Friday, 20 November 2026, 9:30 AM IST (04:00 UTC)
-const WEDDING_DATE = new Date('2026-11-20T04:00:00Z');
+// Wedding Muhurtham date: Thursday, 26 November 2026, 07:48 AM IST
+// Using +05:30 to explicitly set the Indian Standard Time timezone
+const WEDDING_DATE = new Date('2026-11-26T07:48:00+05:30');
 
 function getTimeLeft() {
   const diff = WEDDING_DATE - Date.now();
@@ -127,10 +129,10 @@ export default function Countdown() {
             <div className="plaque-content">
               <span className="plaque-title">Sumuhurtham · శుభ ముహూర్తం</span>
               <p className="plaque-time">
-                Friday, 20 November 2026 &nbsp;|&nbsp; <strong>9:30 AM – 10:15 AM</strong>
+                Thursday, 26 November 2026 &nbsp;|&nbsp; <strong>07:48 AM – 09:56 AM</strong>
               </p>
               <p className="plaque-venue">
-                Sri Tirumala Kalyana Mantapam · Viduraswatha, Gowribidanur
+                PVR Kalyana Mandapam · Kovur Mandal, Nellore District
               </p>
             </div>
           </motion.div>
