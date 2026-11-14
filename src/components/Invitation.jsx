@@ -110,15 +110,14 @@ export default function Invitation({ opened, onOpen }) {
         <i className="card-corner c3">✦</i>
         <i className="card-corner c4">✦</i>
 
-        {/* Minimal Front Cover */}
+        {/* Invitation Cover */}
         <div className="card-content invitation-cover-content">
 
-          {/* Logo */}
-          <div
-            className="mono2"
-            style={{ letterSpacing: '0.02em' }}
-          >
-            PVR
+          {/* Full Invitation Title */}
+          <div className="invitation-logo">
+            <span>Pundreddy</span>
+            <span>Vari</span>
+            <span>Pelli Pilupu</span>
           </div>
 
           {/* Invitation Heading */}
@@ -321,10 +320,12 @@ export default function Invitation({ opened, onOpen }) {
         </div>
       </div>
 
-      {/* Tap Hint */}
+      {/* Highlighted Tap Hint */}
       {!opened && (
-        <div className="tap-hint">
-          TAP TO OPEN
+        <div className="tap-hint tap-hint-highlight">
+          <span className="tap-star">✦</span>
+          <span>TAP TO OPEN</span>
+          <span className="tap-star">✦</span>
         </div>
       )}
     </motion.div>

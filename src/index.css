@@ -1274,3 +1274,241 @@ section {
     border-radius: 15px;
   }
 }
+
+
+/* ================================
+   INVITATION COVER TITLE
+================================ */
+
+.invitation-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+
+  padding: 8px;
+  box-sizing: border-box;
+
+  background: linear-gradient(145deg, #38232d, #21151d);
+  border: 1px solid #c2a266;
+
+  color: #f4dfb4;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  line-height: 1.2;
+  letter-spacing: 0.8px;
+  text-align: center;
+
+  box-shadow: 0 0 18px rgba(194, 162, 102, 0.35);
+}
+
+/* ================================
+   HIGHLIGHTED TAP TO OPEN
+================================ */
+
+.tap-hint-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 13px 22px;
+  margin: 18px auto 0;
+  width: fit-content;
+
+  color: #f5dfad;
+  background: linear-gradient(
+    135deg,
+    #60451e,
+    #8b6a35,
+    #60451e
+  );
+
+  border: 1px solid #d8b875;
+  border-radius: 30px;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  box-shadow:
+    0 0 12px rgba(216, 184, 117, 0.45),
+    0 0 25px rgba(216, 184, 117, 0.2);
+
+  animation: tapHintGlow 1.8s ease-in-out infinite;
+}
+
+.tap-star {
+  color: #ffe8ad;
+  font-size: 12px;
+}
+
+@keyframes tapHintGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(216, 184, 117, 0.35);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 18px rgba(216, 184, 117, 0.75),
+      0 0 30px rgba(216, 184, 117, 0.35);
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tap-hint-highlight {
+    animation: none;
+  }
+}
+
+/* ==========================================
+   BRIGHT & BEAUTIFUL WEDDING COLOUR THEME
+========================================== */
+
+:root {
+  --blush: #fff0f3;
+  --rose: #f6cbd5;
+  --lav: #eee5ff;
+  --lav2: #b58acb;
+  --mint: #e5f7ef;
+  --peach: #ffe2d1;
+  --ink: #493344;
+  --soft: #806477;
+  --plum: #713c60;
+  --cream: #fffaf5;
+  --gold: #c99b43;
+  --gold-light: #f3dca7;
+  --wine: #a83d68;
+}
+
+/* Overall page */
+.main-content {
+  background: #fffaf5;
+  color: #493344;
+}
+
+/* Hero */
+#hero {
+  background: linear-gradient(
+    160deg,
+    #fff0f3 0%,
+    #ffe2d1 48%,
+    #eee5ff 100%
+  );
+  color: #493344;
+}
+
+#hero .section-title {
+  color: #a83d68;
+}
+
+/* Countdown */
+#countdown {
+  background: linear-gradient(
+    135deg,
+    #f7dce8,
+    #e8dafa,
+    #ffe4d4
+  );
+  color: #493344;
+}
+
+#countdown .section-title,
+#countdown h2 {
+  color: #713c60;
+}
+
+#countdown .countdown-box,
+#countdown .countdown-item {
+  background: rgba(255, 255, 255, 0.8);
+  color: #713c60;
+  border: 1px solid #e4bd81;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(113, 60, 96, 0.12);
+}
+
+/* Events */
+#events {
+  background: linear-gradient(
+    180deg,
+    #fffaf5,
+    #fff0f3,
+    #ffe9df
+  );
+  color: #493344;
+}
+
+#events .section-title {
+  color: #a83d68;
+}
+
+#events .event-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e8c58c;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(168, 61, 104, 0.10);
+}
+
+/* Gallery */
+#gallery {
+  background: linear-gradient(
+    160deg,
+    #eee5ff,
+    #fff0f3,
+    #ffe2d1
+  );
+}
+
+#gallery .section-title {
+  color: #a83d68;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(
+    135deg,
+    #713c60,
+    #a34f75
+  );
+  color: #fffaf5;
+}
+
+footer h2,
+footer h3 {
+  color: #ffe2a8;
+}
+
+footer a {
+  color: #fff0d1;
+}
+
+/* Decorative elements */
+.section-title {
+  color: #a83d68;
+}
+
+.rule,
+.card-orn b {
+  color: #c99b43;
+}
+
+/* Text selection */
+::selection {
+  background: #f6cbd5;
+  color: #493344;
+}
+
+/* Smooth transitions */
+.event-card,
+.gallery-item,
+.countdown-box,
+.countdown-item {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
