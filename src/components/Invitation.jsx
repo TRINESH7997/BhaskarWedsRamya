@@ -114,10 +114,9 @@ export default function Invitation({ opened, onOpen }) {
         <div className="card-content invitation-cover-content">
 
           {/* Full Invitation Title */}
+          {/* Full Invitation Title */}
           <div className="invitation-logo">
-            <span>Pundreddy</span>
-            <span>Vari</span>
-            <span>Pelli Pilupu</span>
+            PUNDREDDY VARI PELLI PILUPU
           </div>
 
           {/* Invitation Heading */}

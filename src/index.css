@@ -1624,4 +1624,39 @@ footer a {
 
 .invitation-overlay .tap-star {
   color: #ffe5a8 !important;
+}/* Perfectly centered invitation title */
+.invitation-overlay .invitation-logo {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+
+  box-sizing: border-box;
+  padding: 0 5px !important;
+  margin: 0 auto 18px !important;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  color: #ffe3ad !important;
+  font-family: Georgia, serif !important;
+  font-size: clamp(11px, 1.15vw, 14px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.7px !important;
+  line-height: 1.4 !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  text-shadow: 0 2px 8px rgba(166, 77, 112, 0.25);
+}
+
+@media (max-width: 480px) {
+  .invitation-overlay .invitation-logo {
+    font-size: 10px !important;
+    letter-spacing: 0.35px !important;
+  }
 }
