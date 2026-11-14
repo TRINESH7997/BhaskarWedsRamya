@@ -4,6 +4,7 @@ import Invitation from './components/Invitation';
 import Hero from './components/Hero';
 import Countdown from './components/Countdown';
 import Events from './components/Events';
+import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import RosePetals from './components/RosePetals';
 import MusicPlayer from './components/MusicPlayer';
@@ -70,6 +71,7 @@ function App() {
         <Hero />
         <Countdown />
         <Events />
+        <Gallery />
         <Footer />
       </div>
     </div>

@@ -1189,3 +1189,88 @@ section {
 .music-btn.muted .music-icon  { display: block; }
 .music-btn.muted .music-bars  { display: none; }
 .music-btn:not(.muted) .music-icon { display: none; }
+
+
+/* ==================== WEDDING GALLERY ==================== */
+
+#gallery {
+  background: linear-gradient(
+    180deg,
+    var(--peach) 0%,
+    var(--blush) 55%,
+    var(--cream) 100%
+  );
+  padding: 64px 22px 72px;
+  overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 650px;
+}
+
+#gallery .wrap {
+  max-width: 620px;
+}
+
+#gallery .section-title {
+  color: var(--plum);
+}
+
+#gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+#gallery .gallery-item {
+  position: relative;
+  overflow: hidden;
+  padding: 9px;
+  border: 1px solid rgba(194, 162, 102, 0.72);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fffdf8, #f3e5cf);
+  box-shadow:
+    0 14px 34px rgba(69, 58, 78, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+#gallery .gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  z-index: 1;
+  border: 1px solid rgba(194, 162, 102, 0.48);
+  border-radius: 13px;
+  pointer-events: none;
+}
+
+#gallery .gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 11px;
+  transition: transform 0.6s ease;
+}
+
+@media (hover: hover) {
+  #gallery .gallery-item:hover img {
+    transform: scale(1.035);
+  }
+}
+
+@media (max-width: 480px) {
+  #gallery {
+    padding: 50px 16px 58px;
+  }
+
+  #gallery .gallery-grid {
+    gap: 14px;
+  }
+
+  #gallery .gallery-item {
+    padding: 7px;
+    border-radius: 15px;
+  }
+}
