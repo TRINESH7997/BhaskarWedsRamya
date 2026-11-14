@@ -1660,3 +1660,62 @@ footer a {
     letter-spacing: 0.35px !important;
   }
 }
+/* =========================================
+   ADAPTIVE INVITATION TITLE
+   Supports Light and Dark Themes
+========================================= */
+
+.invitation-overlay .invitation-logo {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+
+  padding: 0 5px !important;
+  margin: 0 auto 18px !important;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(9px, 2.7vw, 14px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.7px !important;
+  line-height: 1.4 !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  /* Default light theme */
+  color: #873D5B !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  .invitation-overlay .invitation-logo {
+    color: #F4DDAA !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Explicit theme class support */
+.dark .invitation-overlay .invitation-logo,
+[data-theme="dark"] .invitation-overlay .invitation-logo {
+  color: #F4DDAA !important;
+}
+
+.light .invitation-overlay .invitation-logo,
+[data-theme="light"] .invitation-overlay .invitation-logo {
+  color: #873D5B !important;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .invitation-overlay .invitation-logo {
+    font-size: clamp(8px, 2.7vw, 11px) !important;
+    letter-spacing: 0.3px !important;
+  }
+}
