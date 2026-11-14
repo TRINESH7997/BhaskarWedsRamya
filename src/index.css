@@ -1719,3 +1719,38 @@ footer a {
     letter-spacing: 0.3px !important;
   }
 }
+/* Invitation title — same colour as YOU ARE INVITED */
+.invitation-overlay .invitation-logo {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+
+  padding: 0 5px !important;
+  margin: 0 auto 18px !important;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  color: #a64d70 !important;
+
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(9px, 2.7vw, 14px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.7px !important;
+  line-height: 1.4 !important;
+
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  text-shadow: none !important;
+}
+
+/* Keep exactly the same colour in dark mode */
+@media (prefers-color-scheme: dark) {
+  .invitation-overlay .invitation-logo {
+    color: #a64d70 !important;
+  }
+}
