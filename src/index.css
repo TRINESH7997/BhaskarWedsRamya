@@ -1512,3 +1512,116 @@ footer a {
 .countdown-item {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
+/* =========================================
+   BRIGHT WEDDING INVITATION OPENING SCREEN
+========================================= */
+
+/* Full screen background */
+.invitation-overlay {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 222, 225, 0.9),
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      #fff3eb,
+      #fce4e8,
+      #f4e8ff
+    ) !important;
+}
+
+/* Invitation card */
+.invitation-overlay .inv-card {
+  background: linear-gradient(
+    160deg,
+    #fffaf4 0%,
+    #fff0f1 55%,
+    #ffe9df 100%
+  ) !important;
+
+  border: 1px solid #d9b66f !important;
+
+  box-shadow:
+    0 15px 45px rgba(151, 91, 112, 0.16),
+    0 0 25px rgba(217, 182, 111, 0.18),
+    inset 0 0 25px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Inner decorative border */
+.invitation-overlay .inv-card::before {
+  border-color: rgba(190, 143, 91, 0.55) !important;
+}
+
+/* Invitation logo */
+.invitation-overlay .invitation-logo {
+  background: linear-gradient(
+    145deg,
+    #a64d70,
+    #c77991
+  ) !important;
+
+  border: 1px solid #e3bd78 !important;
+  color: #fff8ec !important;
+
+  box-shadow:
+    0 0 18px rgba(166, 77, 112, 0.2),
+    0 0 12px rgba(217, 182, 111, 0.3) !important;
+}
+
+/* Invitation heading */
+.invitation-overlay .eyebrow {
+  color: #a64d70 !important;
+}
+
+/* Couple names */
+.invitation-overlay .card-subtitle {
+  color: #914361 !important;
+}
+
+/* Decorative divider */
+.invitation-overlay .card-orn b {
+  color: #c99b43 !important;
+}
+
+.invitation-overlay .card-orn i {
+  background: #d9b66f !important;
+}
+
+/* Decorative corner stars */
+.invitation-overlay .card-corner {
+  color: #c99b43 !important;
+}
+
+/* Ribbon */
+.invitation-overlay .ribbon-band {
+  background: linear-gradient(
+    180deg,
+    #f7e4b7,
+    #d9b66f,
+    #f9e8c5
+  ) !important;
+}
+
+/* Tap to open */
+.invitation-overlay .tap-hint-highlight {
+  background: linear-gradient(
+    135deg,
+    #a64d70,
+    #cc8297,
+    #a64d70
+  ) !important;
+
+  color: #fff8ec !important;
+  border-color: #e6c47e !important;
+
+  box-shadow:
+    0 0 15px rgba(166, 77, 112, 0.3),
+    0 0 25px rgba(217, 182, 111, 0.3) !important;
+}
+
+.invitation-overlay .tap-star {
+  color: #ffe5a8 !important;
+}
