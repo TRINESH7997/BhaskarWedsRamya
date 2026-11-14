@@ -1,27 +1,44 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { playMusic } from '../utils/audioPlayer';
 
 export default function Invitation({ opened, onOpen }) {
-  const cardRef = useRef(null);
   const triggeredRef = useRef(false);
+  const timeoutRef = useRef(null);
   const [ribbonGone, setRibbonGone] = useState(false);
-
-  const handleCardClick = () => {
-    if (triggeredRef.current || opened) return;
-    triggeredRef.current = true;
-
-    playMusic();
-    setRibbonGone(true);
-    setTimeout(onOpen, 900);
-  };
 
   const canvasTL = useRef(null);
   const canvasTR = useRef(null);
   const canvasBL = useRef(null);
   const canvasBR = useRef(null);
 
-  // Draw botanical floral corners
+  const handleCardClick = () => {
+    if (triggeredRef.current || opened) return;
+
+    triggeredRef.current = true;
+    playMusic();
+    setRibbonGone(true);
+
+    timeoutRef.current = setTimeout(() => {
+      onOpen?.();
+    }, 900);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleCardClick();
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  // Draw the four decorative floral corners.
   useEffect(() => {
     const canvases = [
       { ref: canvasTL, seed: 1, flip: false },
@@ -34,15 +51,18 @@ export default function Invitation({ opened, onOpen }) {
       const cv = ref.current;
       if (!cv) return;
 
-      const W = 110, H = 110;
+      const W = 110;
+      const H = 110;
       const dpr = Math.min(2, window.devicePixelRatio || 1);
 
       cv.width = W * dpr;
       cv.height = H * dpr;
-      cv.style.width = W + 'px';
-      cv.style.height = H + 'px';
+      cv.style.width = `${W}px`;
+      cv.style.height = `${H}px`;
 
       const ctx = cv.getContext('2d');
+      if (!ctx) return;
+
       ctx.scale(dpr, dpr);
 
       if (flip) {
@@ -57,13 +77,13 @@ export default function Invitation({ opened, onOpen }) {
   return (
     <motion.div
       onClick={!opened ? handleCardClick : undefined}
-      onTouchEnd={!opened ? handleCardClick : undefined}
+      onKeyDown={!opened ? handleKeyDown : undefined}
       role="button"
       tabIndex={0}
       aria-label="Open wedding invitation"
       style={{
         cursor: opened ? 'default' : 'pointer',
-        touchAction: 'manipulation'
+        touchAction: 'manipulation',
       }}
       className={`invitation-overlay${opened ? ' opened' : ''}`}
       animate={
@@ -73,11 +93,10 @@ export default function Invitation({ opened, onOpen }) {
       }
       transition={{
         duration: 1.4,
-        ease: [0.3, 0, 0.2, 1]
+        ease: [0.3, 0, 0.2, 1],
       }}
     >
-      {/* Invitation Card */}
-      <div className="inv-card" ref={cardRef}>
+      <div className="inv-card">
 
         {/* Floral Corners */}
         <canvas className="floral-corner sk-tl" ref={canvasTL} />
@@ -91,9 +110,10 @@ export default function Invitation({ opened, onOpen }) {
         <i className="card-corner c3">✦</i>
         <i className="card-corner c4">✦</i>
 
-        {/* Main Content */}
-        <div className="card-content">
+        {/* Minimal Front Cover */}
+        <div className="card-content invitation-cover-content">
 
+          {/* Logo */}
           <div
             className="mono2"
             style={{ letterSpacing: '0.02em' }}
@@ -101,30 +121,16 @@ export default function Invitation({ opened, onOpen }) {
             PVR
           </div>
 
+          {/* Invitation Heading */}
           <p
             className="eyebrow"
             style={{ color: 'var(--soft)' }}
           >
-            Pundreddy Vari Pelli Pilupu
+            YOU ARE INVITED
           </p>
 
-          {/* Couple Names */}
-          <div className="names-row">
-
-            <div className={`card-names script${opened ? ' revealed' : ''}`}>
-              <span>Bhaskar Reddy</span>
-
-              <span
-                className="amp"
-                style={{ fontSize: '0.72em' }}
-              >
-                weds
-              </span>
-
-              <span>Ramya Reddy</span>
-            </div>
-
-            {/* Ribbon Animation */}
+          {/* Ribbon Animation */}
+          <div className="names-row invitation-cover-ribbon">
             {!ribbonGone && (
               <div className="ribbon-wrap">
                 <div className="ribbon-band" />
@@ -302,86 +308,25 @@ export default function Invitation({ opened, onOpen }) {
             <i></i>
           </div>
 
+          {/* Couple Names */}
           <p className="card-subtitle">
-            Wedding Invitation
+            BHASKAR REDDY WEDS RAMYA REDDY
           </p>
 
-          {/* Wedding Details */}
-          <div
-            className="invitation-details"
-            style={{
-              maxWidth: '520px',
-              margin: '12px auto 0',
-              padding: '0 12px',
-              textAlign: 'center',
-              color: 'var(--soft)',
-              fontSize: 'clamp(10px, 1.8vw, 13px)',
-              lineHeight: 1.45
-            }}
-          >
+          {/* Ceremony Caption */}
+          <p className="eyebrow">
+            WEDDING CEREMONY
+          </p>
 
-            {/* Bridegroom Details */}
-            <p style={{ margin: '4px 0' }}>
-              <strong>Bridegroom:</strong>
-              <br />
-              Bhaskar Reddy
-              <br />
-              S/o (Late) Sri. Pundreddy Srinivasulu Reddy
-              <br />
-              &amp; Smt. Gangamma
-            </p>
-
-            {/* Bride Details */}
-            <p style={{ margin: '4px 0' }}>
-              <strong>Bride:</strong>
-              <br />
-              Ramya Reddy
-              <br />
-              D/o (Late) Sri. Gunapati Sairam Reddy
-              <br />
-              &amp; Smt. Manjula
-            </p>
-
-            {/* Wedding Date and Time */}
-            <div style={{ margin: '8px 0' }}>
-              <strong>Wedding Ceremony</strong>
-              <br />
-              Thursday, 26 November 2026
-              <br />
-              07:48 AM – 09:56 AM
-            </div>
-
-            {/* Reception Details */}
-            <div style={{ margin: '8px 0' }}>
-              <strong>Reception</strong>
-              <br />
-              26 November 2026
-              <br />
-              7:00 PM
-            </div>
-
-            {/* Venue */}
-            <p style={{ margin: '6px 0' }}>
-              <strong>Venue:</strong>
-              <br />
-              PVR Kalyana Mandapam,
-              <br />
-              Kovur Mandal,
-              <br />
-              Nellore District.
-            </p>
-
-          </div>
         </div>
       </div>
 
       {/* Tap Hint */}
       {!opened && (
         <div className="tap-hint">
-          Tap to open
+          TAP TO OPEN
         </div>
       )}
-
     </motion.div>
   );
 }
@@ -403,13 +348,13 @@ function drawFloral(ctx, seed, W, H) {
       a: '#d9c79f',
       b: '#f6ecd4',
       c: '#fffdf6',
-      e: 'rgba(140,110,60,.28)'
+      e: 'rgba(140,110,60,.28)',
     },
     {
       a: '#dcc4cc',
       b: '#f6ecef',
       c: '#ffffff',
-      e: 'rgba(120,85,100,.24)'
+      e: 'rgba(120,85,100,.24)',
     },
   ];
 
@@ -523,7 +468,6 @@ function drawFlower(ctx, cx, cy, R, p, r) {
     const wid = len * 0.48;
 
     ctx.shadowBlur = i === 0 ? R * 0.28 : R * 0.07;
-
     ctx.shadowOffsetY = i === 0 ? R * 0.1 : 0;
 
     ctx.shadowColor =
@@ -576,7 +520,6 @@ function drawFlower(ctx, cx, cy, R, p, r) {
 
 function drawPetal(ctx, len, wid, p) {
   ctx.beginPath();
-
   ctx.moveTo(0, 0);
 
   ctx.bezierCurveTo(

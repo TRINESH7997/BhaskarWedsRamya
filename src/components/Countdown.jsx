@@ -1,15 +1,17 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-// Assuming useInView is used elsewhere or remove if unused, keeping it as in your original file.
-import useInView from '../hooks/useInView'; 
 
-// Wedding Muhurtham date: Thursday, 26 November 2026, 07:48 AM IST
-// Using +05:30 to explicitly set the Indian Standard Time timezone
+// Wedding Muhurtham: 26 November 2026, 07:48 AM IST
 const WEDDING_DATE = new Date('2026-11-26T07:48:00+05:30');
 
 function getTimeLeft() {
-  const diff = WEDDING_DATE - Date.now();
-  if (diff <= 0) return { d: 0, h: 0, m: 0, s: 0, completed: true };
+  const diff = WEDDING_DATE.getTime() - Date.now();
+
+  if (diff <= 0) {
+    return { d: 0, h: 0, m: 0, s: 0, completed: true };
+  }
+
   return {
     d: Math.floor(diff / 86400000),
     h: Math.floor((diff % 86400000) / 3600000),
@@ -19,23 +21,18 @@ function getTimeLeft() {
   };
 }
 
-function pad(n) { return String(n).padStart(2, '0'); }
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 28, scale: 0.9 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.75, delay: 0.15 + i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+function pad(n) {
+  return String(n).padStart(2, '0');
+}
 
 export default function Countdown() {
-  const [time, setTime] = useState(getTimeLeft());
+  const [time, setTime] = useState(getTimeLeft);
 
   useEffect(() => {
-    const id = setInterval(() => setTime(getTimeLeft()), 1000);
+    const id = setInterval(() => {
+      setTime(getTimeLeft());
+    }, 1000);
+
     return () => clearInterval(id);
   }, []);
 
@@ -49,7 +46,6 @@ export default function Countdown() {
   return (
     <section id="countdown">
       <div className="wrap">
-        {/* Decorative Top Flourish */}
         <motion.div
           className="countdown-badge"
           initial={{ opacity: 0, scale: 0.85 }}
@@ -88,36 +84,44 @@ export default function Countdown() {
           <span className="rule-dot"></span>
         </div>
 
-        {/* Ornate Glassmorphic Countdown Frame */}
         <div className="countdown-royal-card">
           <div className="royal-corner-decor tl"></div>
           <div className="royal-corner-decor tr"></div>
           <div className="royal-corner-decor bl"></div>
           <div className="royal-corner-decor br"></div>
 
-          <div className="countdown-grid">
-            {units.map((u, i) => (
-              <motion.div
-                key={u.label}
-                className={`countdown-box ${u.isLive ? 'is-live-unit' : ''}`}
-                custom={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 + i * 0.08 }}
-              >
-                <div className="box-inner-glow"></div>
-                <div className="num-wrapper">
-                  <span className="countdown-num">{u.val}</span>
-                  {u.isLive && <span className="pulse-indicator" title="Ticking live"></span>}
-                </div>
-                <span className="countdown-label">{u.label}</span>
-                <span className="countdown-sublabel">{u.subtitle}</span>
-              </motion.div>
-            ))}
-          </div>
+          {time.completed ? (
+            <div className="countdown-completed">
+              <h3>శుభ ముహూర్తం ప్రారంభమైంది!</h3>
+              <p>The auspicious wedding Muhurtham has begun!</p>
+            </div>
+          ) : (
+            <div className="countdown-grid">
+              {units.map((u, i) => (
+                <motion.div
+                  key={u.label}
+                  className={`countdown-box ${u.isLive ? 'is-live-unit' : ''}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 + i * 0.08 }}
+                >
+                  <div className="box-inner-glow"></div>
 
-          {/* Muhurtham Details Plaque */}
+                  <div className="num-wrapper">
+                    <span className="countdown-num">{u.val}</span>
+                    {u.isLive && (
+                      <span className="pulse-indicator" title="Ticking live"></span>
+                    )}
+                  </div>
+
+                  <span className="countdown-label">{u.label}</span>
+                  <span className="countdown-sublabel">{u.subtitle}</span>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
           <motion.div
             className="muhurtham-plaque"
             initial={{ opacity: 0, y: 16 }}
@@ -126,11 +130,17 @@ export default function Countdown() {
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             <div className="plaque-icon">🪔</div>
+
             <div className="plaque-content">
-              <span className="plaque-title">Sumuhurtham · శుభ ముహూర్తం</span>
+              <span className="plaque-title">
+                Sumuhurtham · శుభ ముహూర్తం
+              </span>
+
               <p className="plaque-time">
-                Thursday, 26 November 2026 &nbsp;|&nbsp; <strong>07:48 AM – 09:56 AM</strong>
+                Thursday, 26 November 2026 &nbsp;|&nbsp;
+                <strong>07:48 AM – 09:56 AM</strong>
               </p>
+
               <p className="plaque-venue">
                 PVR Kalyana Mandapam · Kovur Mandal, Nellore District
               </p>

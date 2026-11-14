@@ -1,9 +1,9 @@
+
 import { useState, useEffect } from 'react';
 import Invitation from './components/Invitation';
 import Hero from './components/Hero';
 import Countdown from './components/Countdown';
 import Events from './components/Events';
-import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import RosePetals from './components/RosePetals';
 import MusicPlayer from './components/MusicPlayer';
@@ -17,21 +17,37 @@ function App() {
   const handleOpen = () => {
     setOpened(true);
     document.body.style.overflow = 'auto';
-    setTimeout(() => setInvGone(true), 1600);
+
+    setTimeout(() => {
+      setInvGone(true);
+    }, 1600);
   };
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, []);
 
-  // Safety fallback: if user taps on the hero/main site after entering, ensure audio is playing
+  // Start music after the user interacts with the invitation
   useEffect(() => {
     if (!opened) return;
+
     const handleGesture = () => {
       playMusic();
     };
-    window.addEventListener('touchstart', handleGesture, { once: true, passive: true });
-    window.addEventListener('click', handleGesture, { once: true });
+
+    window.addEventListener('touchstart', handleGesture, {
+      once: true,
+      passive: true,
+    });
+
+    window.addEventListener('click', handleGesture, {
+      once: true,
+    });
+
     return () => {
       window.removeEventListener('touchstart', handleGesture);
       window.removeEventListener('click', handleGesture);
@@ -41,13 +57,19 @@ function App() {
   return (
     <div className="app-root">
       <MusicPlayer visible={opened} />
-      {!invGone && <Invitation opened={opened} onOpen={handleOpen} />}
+
+      {!invGone && (
+        <Invitation
+          opened={opened}
+          onOpen={handleOpen}
+        />
+      )}
+
       <div className={`main-content${opened ? ' visible' : ''}`}>
         <RosePetals />
         <Hero />
         <Countdown />
         <Events />
-        <Gallery />
         <Footer />
       </div>
     </div>
