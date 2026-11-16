@@ -18,6 +18,14 @@ const EVENTS = [
     mapUrl: 'https://maps.app.goo.gl/ssXuUMr9mN5Rj1Xb8',
     calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception+-+Bhaskar+%26+Ramya&dates=20261126T133000Z/20261126T163000Z&location=PVR+Kalyana+Mandapam,+Kovur,+Nellore',
   },
+  {
+    title: 'Sathyanarayana swamy pooja',
+    when: 'Sun 29 Nov · 11 AM Onwards',
+    where: 'M Beerepalli, Hindupur',
+    accent: '#c0a0ad',
+    mapUrl: 'https://maps.app.goo.gl/bb9ieTbmsFWxFHMj7',
+    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+-+Bhaskar+%26+Ramya&dates=20261126T021800Z/20261126T042600Z&location=PVR+Kalyana+Mandapam,+Kovur,+Nellore',
+  },
 ];
 
 const cardVariants = {
