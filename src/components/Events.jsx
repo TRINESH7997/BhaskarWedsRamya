@@ -11,16 +11,8 @@ const EVENTS = [
     calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+-+Bhaskar+%26+Ramya&dates=20261126T021800Z/20261126T042600Z&location=PVR+Kalyana+Mandapam,+Kovur,+Nellore',
   },
   {
-    title: 'Reception',
-    when: 'Thu 26 Nov · 7:00 PM Onwards',
-    where: 'PVR Kalyana Mandapam\nKovur Mandal, Nellore District',
-    accent: '#d4b8c0',
-    mapUrl: 'https://maps.app.goo.gl/ssXuUMr9mN5Rj1Xb8',
-    calUrl: 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Reception+-+Bhaskar+%26+Ramya&dates=20261126T133000Z/20261126T163000Z&location=PVR+Kalyana+Mandapam,+Kovur,+Nellore',
-  },
-  {
-    title: 'Sathyanarayana swamy pooja',
-    when: 'Sun 29 Nov · 11 AM Onwards',
+    title: 'Sathyanarayana swamy pooja & Reception',
+    when: 'Sun 29 Nov · Lunch 12 PM Onwards',
     where: 'M Beerepalli, Hindupur',
     accent: '#c0a0ad',
     mapUrl: 'https://maps.app.goo.gl/bb9ieTbmsFWxFHMj7',
